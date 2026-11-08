@@ -1,0 +1,33 @@
+{
+  "name": "ordinance-retrieval-system",
+  "version": "1.0.0",
+  "private": true,
+  "description": "OrdiSearch - Municipality of Polangui Ordinance & Policy Retrieval System",
+  "scripts": {
+    "dev": "node scripts/dev.mjs",
+    "dev:all": "node scripts/dev.mjs",
+    "dev:backend": "python -m uvicorn app.main:app --app-dir backend --host 127.0.0.1 --port 8000 --reload",
+    "dev:frontend": "npm --prefix frontend run dev",
+    "setup": "npm --prefix frontend install",
+    "setup:backend": "pip install -r backend/requirements.txt",
+    "setup:all": "npm --prefix frontend install && pip install -r backend/requirements.txt",
+    "convex": "npm --prefix frontend run convex",
+    "convex:deploy": "cd frontend && npx convex deploy",
+    "build": "cd frontend && npm install --include=dev --legacy-peer-deps && npm run build",
+    "deploy:vercel": "vercel",
+    "deploy:vercel:prod": "vercel --prod",
+    "start": "python -m uvicorn app.main:app --app-dir backend --host 0.0.0.0 --port 8000"
+  },
+  "dependencies": {
+    "convex": "^1.17.4",
+    "next": "^15.5.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "overrides": {
+    "convex": {
+      "react": "$react",
+      "react-dom": "$react-dom"
+    }
+  }
+}

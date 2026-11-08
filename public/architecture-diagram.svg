@@ -1,0 +1,141 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" width="100%" height="100%" style="background-color: #ffffff; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+  <defs>
+    <!-- Arrowhead definition -->
+    <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#1e293b"/>
+    </marker>
+    <!-- Card Drop Shadows -->
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#0f172a" flood-opacity="0.08"/>
+    </filter>
+  </defs>
+
+  <!-- Title & Metadata Header -->
+  <text x="600" y="45" text-anchor="middle" font-size="22" font-weight="800" fill="#0f172a" letter-spacing="-0.5">OrdiSearch · System Architecture Diagram</text>
+  <text x="600" y="68" text-anchor="middle" font-size="13" font-weight="500" fill="#64748b">Municipality of Polangui, Albay · Ordinance Retrieval &amp; Policy Search Engine</text>
+
+  <!-- ================= TIER 1: INGESTION & DOCUMENT PIPELINE ================= -->
+  <g transform="translate(100, 95)">
+    <!-- Group Container -->
+    <rect x="0" y="0" width="1000" height="155" rx="10" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="4 4"/>
+    <text x="20" y="24" font-size="12" font-weight="700" fill="#334155" text-transform="uppercase" letter-spacing="1">Ingestion &amp; Document Pipeline</text>
+
+    <!-- Node 1: Official Ordinance PDF -->
+    <rect x="35" y="45" width="200" height="75" rx="8" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5" filter="url(#shadow)"/>
+    <text x="135" y="80" text-anchor="middle" font-size="13" font-weight="700" fill="#0f172a">Official Ordinance PDF</text>
+    <text x="135" y="100" text-anchor="middle" font-size="11" fill="#64748b">Municipal Scans &amp; Records</text>
+
+    <!-- Arrow 1 -> 2 -->
+    <line x1="235" y1="82" x2="275" y2="82" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/>
+
+    <!-- Node 2: Tesseract OCR -->
+    <rect x="280" y="45" width="200" height="75" rx="8" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5" filter="url(#shadow)"/>
+    <text x="380" y="80" text-anchor="middle" font-size="13" font-weight="700" fill="#0f172a">Tesseract OCR</text>
+    <text x="380" y="100" text-anchor="middle" font-size="11" fill="#64748b">English &amp; Filipino Dictionaries</text>
+
+    <!-- Arrow 2 -> 3 -->
+    <line x1="480" y1="82" x2="520" y2="82" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/>
+
+    <!-- Node 3: Signature Redaction & Privacy -->
+    <rect x="525" y="45" width="215" height="75" rx="8" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5" filter="url(#shadow)"/>
+    <text x="632" y="77" text-anchor="middle" font-size="13" font-weight="700" fill="#0f172a">Signature Redaction</text>
+    <text x="632" y="94" text-anchor="middle" font-size="12" font-weight="700" fill="#15803d">&amp; Privacy Filter</text>
+    <text x="632" y="110" text-anchor="middle" font-size="10" fill="#64748b">Excludes Signatures &amp; PII</text>
+
+    <!-- Arrow 3 -> 4 -->
+    <line x1="740" y1="82" x2="775" y2="82" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/>
+
+    <!-- Node 4: Semantic Section Splitter -->
+    <rect x="780" y="45" width="185" height="75" rx="8" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5" filter="url(#shadow)"/>
+    <text x="872" y="80" text-anchor="middle" font-size="13" font-weight="700" fill="#0f172a">Semantic Splitter</text>
+    <text x="872" y="100" text-anchor="middle" font-size="11" fill="#64748b">Sections, Articles &amp; Chunks</text>
+  </g>
+
+  <!-- Connecting Pipe Downward from Ingestion to Hybrid Retrieval -->
+  <line x1="872" y1="250" x2="872" y2="280" stroke="#475569" stroke-width="2"/>
+  <line x1="872" y1="280" x2="600" y2="280" stroke="#475569" stroke-width="2"/>
+  <line x1="600" y1="280" x2="600" y2="305" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- ================= TIER 2: HYBRID RETRIEVAL & EMBEDDING ================= -->
+  <g transform="translate(100, 310)">
+    <rect x="0" y="0" width="1000" height="135" rx="10" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="4 4"/>
+    <text x="20" y="24" font-size="12" font-weight="700" fill="#334155" text-transform="uppercase" letter-spacing="1">Hybrid Retrieval &amp; Embedding Engine</text>
+
+    <!-- Node: FastEmbed BAAI -->
+    <rect x="35" y="40" width="270" height="70" rx="8" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5" filter="url(#shadow)"/>
+    <text x="170" y="70" text-anchor="middle" font-size="13" font-weight="700" fill="#0f172a">FastEmbed BAAI/bge-small</text>
+    <text x="170" y="90" text-anchor="middle" font-size="11" fill="#64748b">384-Dim Dense Vector Embeddings</text>
+
+    <!-- Node: Hybrid Fusion RRF -->
+    <rect x="365" y="40" width="270" height="70" rx="8" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5" filter="url(#shadow)"/>
+    <text x="500" y="70" text-anchor="middle" font-size="13" font-weight="700" fill="#0f172a">Hybrid Fusion / RRF Re-ranker</text>
+    <text x="500" y="90" text-anchor="middle" font-size="11" fill="#64748b">Dense Vector + BM25 Reciprocal Rank</text>
+
+    <!-- Node: Grounded Citation & Synthesizer -->
+    <rect x="695" y="40" width="270" height="70" rx="8" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5" filter="url(#shadow)"/>
+    <text x="830" y="70" text-anchor="middle" font-size="13" font-weight="700" fill="#0f172a">Grounded Citation &amp; Answer</text>
+    <text x="830" y="90" text-anchor="middle" font-size="11" fill="#64748b">Exact Title, Section &amp; Page Attribution</text>
+  </g>
+
+  <!-- Connectors from Hybrid to Client Tier -->
+  <line x1="830" y1="445" x2="830" y2="480" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- ================= TIER 3: PRESENTATION & CLIENT LAYER ================= -->
+  <g transform="translate(100, 485)">
+    <rect x="0" y="0" width="1000" height="145" rx="10" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="4 4"/>
+    <text x="20" y="24" font-size="12" font-weight="700" fill="#334155" text-transform="uppercase" letter-spacing="1">Presentation &amp; Client Layer (Next.js 15 / React 19)</text>
+
+    <!-- Node: Admin & Ingestion Console -->
+    <rect x="35" y="45" width="270" height="75" rx="8" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5" filter="url(#shadow)"/>
+    <text x="170" y="80" text-anchor="middle" font-size="13" font-weight="700" fill="#0f172a">Admin &amp; Ingestion Console</text>
+    <text x="170" y="100" text-anchor="middle" font-size="11" fill="#64748b">OCR Inspection &amp; Document Review</text>
+
+    <!-- Node: OrdiSearch Citizen Chat UI -->
+    <rect x="365" y="45" width="270" height="75" rx="8" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5" filter="url(#shadow)"/>
+    <text x="500" y="78" text-anchor="middle" font-size="14" font-weight="800" fill="#15803d">OrdiSearch Citizen Chat UI</text>
+    <text x="500" y="100" text-anchor="middle" font-size="11" fill="#64748b">Real-Time Natural Language Inquiries</text>
+
+    <!-- Node: ConvexClientProvider -->
+    <rect x="695" y="45" width="270" height="75" rx="8" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5" filter="url(#shadow)"/>
+    <text x="830" y="80" text-anchor="middle" font-size="13" font-weight="700" fill="#0f172a">ConvexClientProvider</text>
+    <text x="830" y="100" text-anchor="middle" font-size="11" fill="#64748b">Real-Time Reactive WebSockets</text>
+  </g>
+
+  <!-- Connecting Arrows Between Client and Cloud Database -->
+  <line x1="500" y1="630" x2="500" y2="675" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="830" y1="630" x2="830" y2="675" stroke="#475569" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- ================= TIER 4: CONVEX CLOUD PLATFORM ================= -->
+  <g transform="translate(100, 680)">
+    <rect x="0" y="0" width="1000" height="180" rx="10" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="4 4"/>
+    <text x="20" y="24" font-size="12" font-weight="700" fill="#334155" text-transform="uppercase" letter-spacing="1">Convex Cloud Platform (Primary Online Database)</text>
+
+    <!-- Node: Serverless Queries & Mutations -->
+    <rect x="250" y="38" width="500" height="42" rx="6" fill="#1e293b" stroke="#0f172a" stroke-width="1.5" filter="url(#shadow)"/>
+    <text x="500" y="64" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff">Serverless Queries, Mutations &amp; Actions</text>
+
+    <!-- Sub-databases / Indexes -->
+    <g transform="translate(35, 95)">
+      <!-- HNSW Vector Index -->
+      <rect x="0" y="0" width="210" height="60" rx="6" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5" filter="url(#shadow)"/>
+      <text x="105" y="27" text-anchor="middle" font-size="12" font-weight="700" fill="#0f172a">HNSW Vector Index</text>
+      <text x="105" y="46" text-anchor="middle" font-size="11" fill="#64748b">384-dim Fast Retrieval</text>
+
+      <!-- Chat History Store -->
+      <rect x="250" y="0" width="210" height="60" rx="6" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5" filter="url(#shadow)"/>
+      <text x="355" y="27" text-anchor="middle" font-size="12" font-weight="700" fill="#0f172a">Chat History Store</text>
+      <text x="355" y="46" text-anchor="middle" font-size="11" fill="#64748b">Sessions &amp; Message Turns</text>
+
+      <!-- BM25 Full-Text Search Engine -->
+      <rect x="500" y="0" width="210" height="60" rx="6" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5" filter="url(#shadow)"/>
+      <text x="605" y="27" text-anchor="middle" font-size="12" font-weight="700" fill="#0f172a">BM25 Search Engine</text>
+      <text x="605" y="46" text-anchor="middle" font-size="11" fill="#64748b">Full-Text Inverted Index</text>
+
+      <!-- Documents & Sections Store -->
+      <rect x="740" y="0" width="190" height="60" rx="6" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5" filter="url(#shadow)"/>
+      <text x="835" y="27" text-anchor="middle" font-size="12" font-weight="700" fill="#0f172a">Documents Store</text>
+      <text x="835" y="46" text-anchor="middle" font-size="11" fill="#64748b">Ordinances &amp; Sections</text>
+    </g>
+  </g>
+</svg>
+

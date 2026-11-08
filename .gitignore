@@ -1,0 +1,54 @@
+# Environment and secrets
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+htmlcov/
+backend/.venv/
+.venv/
+venv/
+*.egg-info/
+
+# Node / Next.js
+node_modules/
+frontend/.next/
+frontend/out/
+frontend/next-env.d.ts
+*.tsbuildinfo
+
+# Runtime data and uploads
+data/
+!data/.gitkeep
+backend/data/
+storage/
+*.db
+*.db-shm
+*.db-wal
+/tmp/
+chunks/
+*.bin
+
+# Temporary video renders and audio tests
+temp_*/
+preview-*.png
+*.mp4
+remotion-video/out/
+remotion-video/node_modules/
+remotion-video/public/voiceover/raw/
+remotion-video/public/voiceover/test*.wav
+
+# Logs and editor files
+*.log
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Vercel deployment cache
+.vercel/
+frontend/.vercel/

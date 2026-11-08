@@ -1,0 +1,315 @@
+=== PAGE 36 ===
+comfortably review OCR output, correct section boundaries, verify signatories, and inspect 
+evaluation dashboards. A stable internet connection was necessary during initial installation, 
+model download, dependency updates, and optional Convex synchronization, although the core 
+ingestion and retrieval functions can operate locally once the system has been configured. 
+Overall, these minimum specifications allowed the system to remain efficient, affordable, and 
+accessible, especially for municipal offices and educational institutions with modest computing 
+resources. 
+ 
+Evaluation Tool 
+The study utilized two distinct evaluation tools to assess both the technical accuracy of 
+the retrieval and ranking components and the functional acceptability of the system. To evaluate 
+the accuracy of OrdiSearch’s legal document retrieval, the researchers employed a Relevance 
+Judgment Matrix, a retrieval-oriented adaptation of the confusion matrix. This tool compared the 
+sections retrieved by the system against the relevance judgments assigned by human evaluators, 
+who graded each retrieved provision using a four-point relevance scale: 3 for directly and 
+completely relevant, 2 for substantially relevant, 1 for partially relevant, and 0 for not relevant. 
+For the confusion matrix, sections with a grade greater than zero were treated as relevant, while 
+sections with a grade of zero were treated as non-relevant. Based on this matrix, critical 
+performance metrics such as Accuracy, Precision, Recall, and F1-Score were calculated. These 
+metrics determined the reliability of the keyword, vector, and hybrid retrieval configurations in 
+returning the correct ordinance sections, ensuring that the system met the technical standards 
+required for a source-grounded legal retrieval tool. 
+To assess the software’s quality from the user’s perspective, the study utilized a 
+structured evaluation questionnaire based on the ISO/IEC 25010:2023 software quality 
+
+=== PAGE 37 ===
+standards. Municipal administrators, records officers, legal reviewers, and selected ordinance 
+users rated the system using a five-point Likert scale. The weighted mean was the statistical 
+method used to analyze this evaluation data. This method assigned different levels of importance 
+to each response. In this approach, each rating provided by the evaluators was multiplied by a 
+weight that reflected its significance. The resulting products were then summed and divided by 
+the total of the weights. By applying this method, the study accounted for the varying influence 
+of each response rather than treating all responses equally. As a result, the weighted mean 
+provided a more comprehensive and meaningful interpretation of the collected data, reflecting 
+the overall perception of the system’s quality and performance. 
+Formula: 
+M = Σ(w · x) / Σw 
+Where: 
+- x = numerical ratings provided by the evaluator, 
+- w = assigned weights for each rating, and 
+- M = computed weighted mean. 
+F1 Score 
+Along with the ISO/IEC 25010 software quality model, the system was also evaluated 
+using the F1-Score. The F1-Score was a standard metric in information retrieval and machine 
+learning used to measure the effectiveness of retrieval and classification systems. It provided a 
+balanced evaluation of system performance by combining precision and recall, making it suitable 
+for assessing collections with an uneven number of relevant and non-relevant provisions. In this 
+study, the weighted average F1-score was utilized to reflect the performance of each query 
+
+=== PAGE 38 ===
+category based on its support, ensuring a more reliable measurement of the system’s retrieval 
+capability. The formula used to calculate the F1-Score was: 
+F1 = 2 × (Precision × Recall) / (Precision + Recall) 
+Where: 
+Precision = True Positives / (True Positives + False Positives) 
+Recall = True Positives / (True Positives + False Negatives) 
+- True Positives (TP) refer to retrieved ordinance sections that were judged relevant by 
+the evaluators. 
+- False Positives (FP) refer to retrieved sections that were judged non-relevant. 
+- False Negatives (FN) refer to relevant sections that existed in the corpus but were not 
+retrieved by the system. 
+In addition to the F1-Score, the study measured Mean Reciprocal Rank (MRR) and 
+Normalized Discounted Cumulative Gain at k (nDCG@k) to evaluate ranking quality. 
+MRR measured how quickly the first relevant section appeared in the result list, while 
+nDCG@k accounted for the graded relevance of each result using the formula: 
+DCG@k = Σ (2^(rel_i) - 1) / log2(i + 1) 
+nDCG@k = DCG@k / IDCG@k 
+where rel_i is the relevance grade of the section at rank i, and IDCG@k is the ideal 
+discounted cumulative gain obtained by sorting all judged sections by descending 
+relevance. The evaluation also measured retrieval latency, empty-retrieval behavior, and 
+citation correctness. Citation correctness verified that each returned citation pointed to an 
+existing chunk, the same document and section, and a valid page range. 
+
+=== PAGE 39 ===
+Furthermore, the retrieval pipeline constructs a feature set from lexical BM25 scores, 
+dense vector cosine similarity, bilingual English–Filipino synonym expansion, legal stem 
+normalization, topic coverage, section-heading alignment, exact phrase matching, and penalty or 
+exemption intent cues. These features serve as inputs to the hybrid ranking process, enabling the 
+system to distinguish between provisions that merely share generic legal wording and provisions 
+that directly address the user’s query. This technical framework was implemented using 
+standardized retrieval and machine learning libraries, including Convex for keyword ranking and 
+FastEmbed with the BAAI/bge-small-en-v1.5 model for semantic similarity, to ensure the 
+reliability and consistency of the system’s retrieval evaluation. 
+ 
+Table 4. Likert Scale 
+Scale 
+Range 
+Interpretation 
+5 
+4.21 – 5.00 
+Excellent 
+4 
+3.41 – 4.20 
+Very Good 
+3 
+2.61 – 3.40 
+Good 
+2 
+1.81 – 2.60 
+Fair 
+1 
+1.00 – 1.80 
+Poor 
+ 
+Table 4 presented the evaluation scale, corresponding numerical ranges, and descriptive 
+ratings used to interpret the weighted mean scores. A rating of Poor (1.00–1.80) indicated 
+significant shortcomings in system functionality or usability. Fair (1.81–2.60) reflected partial 
+functionality that did not fully meet user expectations. Good (2.61–3.40) showed modest 
+functionality and adequate performance. Very Good (3.41–4.20) signified that the system met 
+expectations and operated appropriately. Finally, Excellent (4.21–5.00) demonstrated exceptional 
+
+=== PAGE 40 ===
+performance, high user satisfaction, and effective achievement of the system’s objectives. This 
+scale provided a clear and structured framework for evaluating the overall performance and user 
+perception of the system. 
+Table 5. Software Product Quality of the Proposed System 
+ 
+Indicators 
+5 
+4 
+3 
+2 
+1 
+A. Functional Suitability 
+ 
+Functional completeness 
+Functional correctness 
+Functional appropriateness 
+ 
+ 
+ 
+ 
+ 
+ 
+B. Interaction Capability 
+ 
+Appropriateness recognizability 
+Learnability 
+Operability 
+Self-descriptiveness 
+ 
+ 
+ 
+ 
+ 
+Table 5 presented the ISO/IEC 25010 Evaluation Tool for OrdiSearch, which assessed system 
+quality across eight software product characteristics: Functional Suitability, Performance 
+Efficiency, Compatibility, Interaction Capability, Reliability, Security, Maintainability, and 
+Portability. Functional Suitability evaluated whether the system performed its intended tasks 
+accurately and appropriately, specifically the ingestion of ordinance documents, retrieval of 
+legal sections, and generation of source-grounded citations. Performance Efficiency measured 
+
+=== PAGE 41 ===
+response time and resource utilization during search and document processing. Compatibility 
+assessed the system’s ability to operate within existing government office environments and 
+browsers. Interaction Capability measured usability, focusing on ease of use, learnability, 
+operability, and the clarity of system guidance. Reliability examined the system’s availability, 
+fault tolerance, and recovery from failed ingestion jobs. Security evaluated confidentiality, 
+integrity, accountability, and protection of signature-bearing documents. Maintainability and 
+Portability assessed the system’s modularity, testability, adaptability, and ease of deployment. 
+Each indicator was rated on a five-point Likert scale, where 5 indicated excellent performance 
+and 1 indicated poor performance. This evaluation provided a clear overview of OrdiSearch’s 
+strengths and areas for improvement, ensuring that the system was both functionally reliable and 
+user-friendly. 
+ 
+ 
+ 
+ 
+Table 6. Evaluation Expected Results 
+ 
+System Scenario 
+System Feature / Module 
+Expected Result 
+Administrator uploads 
+scanned municipal 
+ordinance PDF 
+Document Ingestion & OCR 
+Pipeline 
+The system extracts bilingual text using 
+PyMuPDF and Tesseract OCR, parses section 
+boundaries, isolates signature blocks, generates 
+dense embeddings via FastEmbed, and indexes 
+the document into Convex for search. 
+
+=== PAGE 42 ===
+System Scenario 
+System Feature / Module 
+Expected Result 
+User submits 
+natural-language query 
+regarding local policy 
+Hybrid Retrieval & Ranking 
+Engine 
+The system applies synonym expansion and 
+legal stem normalization, performs BM25 and 
+dense vector similarity scoring, fuses ranks, 
+and returns relevant ordinance provisions with 
+exact page and section citations within 
+seconds. 
+Evaluator assesses 
+system output using test 
+query benchmark 
+Retrieval Validation Module 
+The system computes precision, recall, 
+F1-Score, MRR, and nDCG metrics against 
+ground-truth annotations to verify retrieval 
+relevance and source accuracy. 
+Administrative staff 
+evaluates system quality 
+via survey 
+Software Quality Evaluation 
+Framework (ISO/IEC 25010) 
+User ratings across eight quality characteristics 
+are aggregated using the weighted mean, 
+providing descriptive ratings to evaluate 
+functional suitability and usability. 
+System executes query 
+logging and document 
+metadata storage 
+Database & Audit Logging 
+Unit 
+All search transactions, metadata updates, and 
+processing logs are securely persisted in 
+Convex without data corruption or loss. 
+Table 6 outlines the expected results across key operational scenarios for the VectorSearch-LGU 
+system. When an administrator uploads a municipal ordinance PDF, the Document Ingestion 
+Pipeline processes the file through bilingual OCR, parses section boundaries, and generates 
+vector embeddings. When a user submits a natural-language inquiry, the Hybrid Retrieval and 
+Ranking Engine evaluates semantic similarity and BM25 scores to return accurate section-level 
+citations with source excerpts. Furthermore, the Retrieval Validation Module and Software 
+Quality Evaluation Framework provide quantitative performance metrics and ISO/IEC 25010 
+quality assessments, while the Convex database securely maintains session records and audit 
+logs to ensure overall system reliability and traceability. 
+Ethical Considerations 
+
+=== PAGE 43 ===
+The researchers obtained formal approval to conduct the study at the Office of the 
+Secretary to the Sangguniang Bayan of the Local Government Unit of Polangui, Albay, 
+through appropriate institutional channels. Informed consent was secured from all 
+participating administrative personnel, who were briefed on the study's objectives, scope, 
+and procedures. Participation was voluntary, and participants could withdraw at any time 
+without consequence. 
+  
+All data were treated with strict confidentiality, and participants' identities remained 
+anonymous. The ordinance documents used in the study were official public records 
+enacted by the Sangguniang Bayan; however, any personal information contained within 
+or associated with these documents was handled in accordance with applicable privacy 
+standards. Responses from evaluation instruments were used solely for research purposes, 
+and in compliance with the Data Privacy Act of 2012 (Republic Act No. 10173), 
+measures were implemented to secure, store, and properly dispose of all personal 
+information. By following institutional and legal ethical standards, the study safeguarded 
+the rights, privacy, and dignity of all participants involved in the development and 
+evaluation of the VectorSearch-LGU system. 
+  
+This study developed and evaluated VectorSearch-LGU as a supplemental retrieval 
+resource for municipal personnel, without claiming or measuring any resulting change in 
+formal legal interpretation or legislative productivity. The system is intended to support 
+administrative decisions by facilitating. 
+References 
+
+=== PAGE 44 ===
+​
+Afrianto, I., Heryanto, A., & Atin, S. (2024). Analysis impact of Rapid Application 
+Development method on development cycle and user satisfaction: A case study on web-based 
+registration 
+service. 
+Scientific 
+Journal 
+of 
+Informatics, 
+11(1), 
+84-95. 
+https://doi.org/10.15294/sji.v11i1.1868 
+  
+Agpaoa, A. A. C., & Palaoag, T. D. (2025). Designing a performance metrics evaluation 
+framework for NLP-driven chatbots in local government unit. Journal of Information 
+Systems 
+Engineering 
+and 
+Management, 
+10(43s), 
+1153-1159. 
+https://jisem-journal.com/index.php/journal/article/download/8535/3883/14181 
+  
+ISO/IEC 25010. (2023). Systems and software engineering - Systems and software 
+Quality Requirements and Evaluation (SQuaRE) - Product quality model. International 
+Organization for Standardization. 
+  
+Nie, Z., Feng, Z., Li, M., Zhang, C., Zhang, Y., Long, D., & Zhang, R. (2024). When text 
+embedding meets large language model: A comprehensive survey. arXiv preprint 
+arXiv:2412.09165. https://doi.org/10.48550/arXiv.2412.09165 
+  
+Roque, M., Abejuela, N., Chu, S., Cabatuan, M., & Sybingco, E. (2024). Legal 
+information retrieval through embedding models and synthetic question generation: 
+Insights from the Philippine Tax Code. In N. Oco, S. N. Dita, A. M. Borlongan, & J.-B. 
+Kim (Eds.), Proceedings of the 38th Pacific Asia Conference on Language, Information 
+
+=== PAGE 45 ===
+and 
+Computation 
+(pp. 
+354-362). 
+Tokyo 
+University 
+of 
+Foreign 
+Studies. 
+https://aclanthology.org/2024.paclic-1.35/ 
+  
+Singgalen, Y. A., Montolalu, C. E., & Batmetan, J. R. (2024). Implementation of Rapid 
+Application Development (RAD) for community-based ecotourism monitoring system. 
+IJISTECH: International Journal of Information System and Technology, 8(2), 267-278. 
+https://doi.org/10.30645/ijistech.v8i2.399 
+ 

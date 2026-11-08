@@ -1,0 +1,373 @@
+<USER_REQUEST>
+I want you to look at this system and edit a pitch video (min of 5 max of 10 mins) using re motion. I also have a tts 
+cloned of my vouice in this mcp server {
+  "mcpServers": {
+    "voicebox": {
+      "url": "http://127.0.0.1:17493/mcp",
+      "headers": {
+        "X-Voicebox-Client-Id": "claude-code"
+      }
+    }
+  }
+}
+
+
+I want you to 
+Introduce 
+Significance 
+Objectives
+Methodology 
+and the System Walkthrough ( use the system for recording or replicating its feature)
+
+I want you to make it entertaning and add motion grpahics that is helping the narrative
+
+I am giving you the context of our chapters 1 to 3 
+
+Chapter 1
+INTRODUCTION
+ 
+Local ordinances and policy documents contain crucial rules and regulations that directly affect residents, local businesses, and public services within a municipality. However, accessing and navigating these legal documents presents significant operational challenges. Municipal ordinances are often lengthy, fragmented across disparate file formats and physical archives, and written in highly formal legal terminology. A person seeking a specific rule may understand the intent of their inquiry but lack knowledge of the exact phrasing used in the enacted document. For instance, a user searching for "Are businesses allowed to operate after midnight?" may fail to find the relevant rule in traditional archives if the document is indexed under formal legal terminology such as "permitted commercial operating hours and nighttime trade restrictions."
+Historically, local government units (LGUs) and municipal offices manage vast and continually growing corpora of public policies, legislative acts, resolutions, and local ordinances to regulate public order, local commerce, zoning, taxation, and community health. However, accessing and navigating these legal documents presents significant operational challenges. Municipal ordinances are often lengthy, fragmented across disparate file formats and physical archives, and written in highly formal legal terminology. A person seeking a specific rule may understand the intent of their inquiry but lack knowledge of the exact phrasing used in the enacted document. Dense vector representations and semantic embeddings mitigate these lexical mismatches by projecting text into shared vector spaces to enable contextual similarity matching (Karpukhin et al., 2020; Reimers & Gurevych, 2019).
+The Office of the Secretary to the Sangguniang Bayan of the Local Government Unit (LGU) of Polangui, Albay, as the official custodian responsible for facilitating access to municipal legislative records, faces persistent difficulties in organizing, searching, and verifying local policies using traditional keyword-matching methods. Personnel often spend considerable time manually examining extensive ordinance files because existing search tools fail to bridge the conceptual gap between everyday natural language and formal legal text. Additionally, while other authorized LGU offices need to reference local policies, they lack an efficient mechanism to query digitized records conversationally while maintaining strict traceability back to the original official documents.
+The Local Government Unit of Polangui is a first-class municipality located in the province of Albay, Philippines, serving a growing population across its constituent barangays. Its municipal legislative body, the Sangguniang Bayan, enacts numerous ordinances and resolutions annually, which are systematically cataloged, managed, and archived by the Office of the Secretary to the Sangguniang Bayan to support local governance, administrative compliance, and public transparency.
+To meet the needs of both administrative personnel and authorized LGU offices created by the difficulties outlined above, this study introduces Ordisearch: A Vector Search-Based Local Ordinance and Policy Retrieval System. Using conversational interfaces and dense vector embedding generation, the system allows authorized users to enter natural-language queries and receive semantically relevant ordinance provisions as supplemental reference resources, accompanied by their corresponding ordinance title, section, and source document for verification. Software quality and functional suitability of the developed retrieval system can be rigorously evaluated against established software engineering standards (ISO/IEC 25010, 2011).
+Ordisearch aligns with local governance development goals and institutional priorities for digital transformation and transparent public service delivery. VectorSearch-LGU directly addresses the principles of responsive public administration and transparent local governance. Specifically, this study developed and evaluated a supplemental retrieval resource for municipal personnel, without claiming or measuring any resulting change in formal legal interpretation or legislative productivity.
+The main participants and beneficiaries of this research were the administrative personnel employed at the Office of the Secretary to the Sangguniang Bayan of Polangui, Albay. These staff members may use VectorSearch-LGU to help locate and verify policy provisions as part of their regular records management practice. This study does not measure or claim any resulting change in the time personnel spend on document retrieval or in the legal outcomes of municipal decisions, since operational workload and formal legal determinations fall outside the scope of this evaluation. Potential secondary recipients of this project’s results include municipal administrators who may apply this project’s results when determining what types of digital technology should be incorporated into local government offices; policy researchers who may use the results to inform municipal information-management policies; and researchers investigating intersections of artificial intelligence and public administration who may view Ordisearch as a proof of concept for how vector search and semantic retrieval can be used as administrative support tools in a local government setting.
+ 
+Objectives of the Study
+The study aims to develop a vector search-based local ordinance and policy retrieval system for the Office of the Secretary to the Sangguniang Bayan of Polangui that allows authorized users to search official documents using everyday language. Specifically, it aims to:
+1. Determine the document, metadata, query, and retrieval requirements of the Office of the Secretary to the Sangguniang Bayan needed to organize and search digitized local ordinances and policies of the LGU of Polangui.
+2. Design and develop a system that divides ordinance documents into searchable sections, creates vector embeddings, accepts natural-language questions, ranks the most relevant sections, and shows the retrieved text together with the ordinance title, section, and source document.
+3. Evaluate the system in terms of retrieval relevance, accuracy, response time, usability, and software quality through controlled retrieval experiments and user feedback based on ISO/IEC 25010 Software Product Quality characteristics.
+Significance of the Study
+        	Office of the Secretary to the Sangguniang Bayan of Polangui, Albay. Drastically reduces the time personnel spend manually opening, scrolling through, and examining multi-page physical or digitized PDF ordinance files to locate specific clauses.  Enables staff to locate relevant provisions using everyday natural language queries without needing prior knowledge of the exact legal codification or formal terminology used in the original enactment.
+        	Local Government Unit (LGU) Officials. Serves as a rapid, reliable reference tool for reviewing existing local policies, regulations, and executive orders before implementing administrative decisions or issuing permits. Assists municipal lawmakers and staff in quickly identifying overlapping, outdated, or potentially conflicting prior ordinances during the drafting and revision of new local legislation.
+        	Local Chief Executives. Demonstrates a practical model for modernizing municipal information management systems without requiring high-cost, proprietary enterprise legal software. Encourages data-driven public administration by making local policy archives transparently accessible and actionable across administrative levels.
+        	Policy Researchers. Bridges the gap between complex legal language and plain-language inquiries, facilitating clearer understanding of civic duties, licensing requirements, zoning limits, and local restrictions. Demonstrates how modern retrieval technologies can improve public accountability and citizen access to legislative information in local government settings.
+        	 Future Researchers. Provides empirical data on the performance of dense vector embeddings, document chunking techniques, and semantic retrieval models applied to local government legal text.
+
+
+
+
+
+
+
+
+
+
+
+
+
+References
+ISO/IEC 25010. (2011). Systems and software engineering — Systems and software Quality Requirements and Evaluation (SQuaRE) — System and software quality models. International Organization for Standardization.
+Karpukhin, V., Oğuz, B., Sewell, S., Majumder, P., Dempsey, M., Inan, H., & Yih, W. (2020). Dense passage retrieval for open-domain question answering. Proceedings of the 2020 Conference on Empirical Methods in Natural Language Processing (EMNLP), 6769–6781. https://doi.org/10.18653/v1/2020.emnlp-main.550 Cited by: 7078
+Reimers, N., & Gurevych, I. (2019). Sentence-BERT: Sentence embeddings using Siamese BERT-networks. Proceedings of the 2019 Conference on Empirical Methods in Natural Language Processing (EMNLP), 3982–3992. https://doi.org/10.18653/v1/D19-1410
+
+Chapter 2
+REVIEW OF RELATED LITERATURE AND STUDIES
+Related Literature
+Dela Peña (2025) examined the e-government services of the Local Government Unit (LGU) of Paracale, Camarines Norte, to determine how digital transformation affects public service delivery and citizen engagement. The study surveyed twenty-four LGU employees using a five-point Likert scale and rated the platform against the ISO 25010:2011 characteristics of functionality, reliability, usability, performance efficiency, compatibility, maintainability, portability, and security. The findings showed that the platform was highly effective, with strong functionality, reliable performance, user-friendly interfaces, and sound security, and that it improved service delivery, transparency, and citizen engagement. The study also identified areas needing improvement. Because Paracale lies in the Bicol Region, the study offers a nearby precedent for evaluating an LGU system against ISO 25010, the same standard the proposed system will use.
+Dandan et al. (2026) evaluated a Barangay Management System developed for Barangay Macapso in Vallehermoso, Negros Oriental, to address gaps in the barangay's manual administrative processes. Using a descriptive-developmental design, they gathered survey and interview data from the Barangay Chairman, Kagawad, Secretary, and staff, while IT experts assessed technical quality under ISO/IEC 25010:2011. End-users rated the system highly in functional suitability, usability, reliability, and performance efficiency, and IT experts reported favorable results for maintainability, compatibility, and security. The authors noted uneven digital proficiency among users and recommended targeted training, continuous maintenance, and possible expansion to other barangays. This finding is relevant to the proposed system because the intended users, the personnel of the Office of the Secretary to the Sangguniang Bayan, will likely have varying levels of digital skill.
+Legislative Information Platforms for Local Government.
+The Department of the Interior and Local Government (DILG, 2026) issued Memorandum Circular No. 2026-041 on the e-Legis Reference System. The circular describes an initiative of the Vice Mayors' League of the Philippines (VMLP), in partnership with the Center for Local and Regional Governance of the UP National College of Public Administration and Governance, to build a central online repository of local legislation for cities and municipalities. It describes the system as an AI-driven legislative information platform that consolidates ordinances, resolutions, and other issuances in one database, automates document formatting, and supports evidence-based policymaking and knowledge sharing among LGUs. The circular shows that national-level support for digitizing and centralizing local legislation is emerging. It also indicates that a municipal system such as the one proposed for Polangui should be positioned as a local retrieval tool focused on natural-language search and traceability to official source documents, and should be able to coexist with national repositories. Note that this source is a government issuance rather than a journal article.
+Lim (2025) analyzed the legal framework governing the use of artificial intelligence systems in Philippine legal practice. The paper discusses retrieval-augmented generation (RAG) as a way to improve the accuracy and contextual relevance of large language model output by drawing on retrieved information. It also treats the use of AI in the Philippine legal setting, existing AI legal tools, and AI governance. It observes that training language models specifically on Philippine legal materials is costly, which makes retrieval-based approaches attractive. This supports the design choice of the proposed system, which retrieves and displays the original ordinance text instead of generating legal conclusions, consistent with the concept paper's position that the system supports decisions and does not replace official legal interpretation. Note that this source is a manuscript hosted on an academic repository and has not, as far as could be verified, passed journal peer review.
+Agpaoa and Palaoag (2025) proposed a performance-metrics framework for NLP-driven chatbots in LGUs. They conducted a systematic review following PRISMA, in which 10 studies were retained from 120 records identified. The resulting framework has five perspectives: User Experience, Information Retrieval, Linguistic Quality, Technology Efficiency, and Public Service. The Information Retrieval perspective uses accuracy, precision, recall, and F1-score to judge whether responses are correct, relevant, and complete. The Technology Efficiency perspective uses latency and robustness, including handling of typos and ambiguous queries. The authors also stress bilingual support, inclusivity, and public trust, and they note that the framework still requires pilot testing with LGU-specific data. These perspectives align closely with the proposed evaluation plan, which includes Precision@K, Recall@K, MRR, nDCG, query response time, and consistency across paraphrased questions. The emphasis on bilingual support also suggests that queries in Filipino or Bikol-influenced phrasing should be considered when preparing test queries.
+Related Studies
+Roque et al. (2024) studied retrieval of sections of the Philippine National Internal Revenue Code of 1997 using embedding models. They compiled 1,020 annotated queries from bar exam reviewers and generated 7,310 synthetic queries with Llama 3.1 8B Instruct. They compared five embedding models: Word2Vec, SBERT, Jina Embeddings 2, Nomic Embed, and GTE. Dividing the code's sections into smaller subsections gave the largest gains, raising Top-1 accuracy by up to 13% and mean reciprocal rank (MRR) by up to 0.14. The best configuration, GTE fine-tuned on synthetic data over the split code, reached a Top-1 accuracy of 0.66 and an MRR of 0.76. Fine-tuning on synthetic data added little beyond section splitting. This is the closest local study to the present one. It supports the plan to divide ordinances into searchable sections, it uses MRR as one of the proposed metrics, and it suggests that careful chunking may matter more than model fine-tuning. It differs in that it covers a national statute rather than municipal ordinances and does not build a user-facing system for a local office.
+Samuel Reign and Centeno (2024) developed eFIND, an enhancement of a barangay information system that combines geolocation, Tesseract OCR, full-text search, cloud-based record keeping, and a Tagalog chatbot using natural language processing, so that the barangay secretary can locate files easily. The system was evaluated using the ISO 25010 software quality model, and chatbot usability was assessed with the Chatbot Usability Questionnaire. The study is relevant because it targets the same type of user, a records-handling secretary, and it pairs OCR and search over local documents with a conversational interface. Unlike the proposed system, it relies on full-text search and does not use vector embeddings or ranking metrics for retrieval quality.
+Wong (2025) developed and evaluated an integrated system for document routing, Freedom of Information (FOI) compliance, and data security at the Philippine Reclamation Authority. Using a descriptive-developmental design, ISO/IEC 25010-based questionnaires, and statistical tests with 11 participants, the study reported that document retrieval time fell from 16.33 to 7.73 minutes. Document turnaround time fell from 47.83 to 30.81 hours, FOI response time fell from 14.24 to 10.10 days, and security vulnerability scores declined across successive refinements. The study offers local evidence that digitized, well-organized records can substantially reduce retrieval time in a Philippine government office. It also demonstrates a before-and-after measurement approach that the proposed study can adapt when comparing manual and system-assisted searches. Its focus is routing and FOI processing, not semantic search.
+Libadia et al. (2025) developed a web-based electronic records management system (ERMS) for the Office of Senior Citizen Affairs in the Philippines, published in the Records Management Journal. This study is included because it addresses the digitization and management of records in a Philippine government office, which is the first step the proposed system requires before ordinances can be chunked and embedded. (The full text was not reviewed for this draft; the description is based on the published citation and title, so please verify details before using it.)
+Dandan et al. (2026) is also treated here as a related study because it reports a developed system and its measured quality. The Barangay Management System was built to replace manual administrative processes and was assessed by both end-users and IT experts. It shows a workable evaluation design, with end-users judging functional suitability, usability, reliability, and performance efficiency, and IT experts judging maintainability, compatibility, and security. The proposed study can use the same two-group design, with Sangguniang Bayan personnel as end-users and IT experts as technical evaluators.
+ 
+Project Synthesis
+The literature shows that Philippine LGUs are adopting digital platforms and that ISO/IEC 25010 is the common basis for judging their quality (Dandan et al., 2026; Dela Peña, 2025). Evaluation frameworks for LGU-facing language systems stress retrieval accuracy, response speed, and public trust (Agpaoa & Palaoag, 2025). National initiatives are moving toward centralized, AI-supported legislative repositories (DILG, 2026), and local legal-AI discussions favor retrieval-based designs for reliability (Lim, 2025). None of these sources, however, reports a semantic retrieval system built for the ordinances of a single municipality and evaluated with ranking metrics, which is the gap the proposed study addresses.
+The reviewed studies agree on three points relevant to the proposed system. First, retrieval quality over Philippine legal text improves when long documents are split into smaller, focused units (Roque et al., 2024). Second, systems that organize and search local records can reduce retrieval time and are commonly evaluated with ISO/IEC 25010 (Samuel Reign & Centeno, 2024; Wong, 2025; Dandan et al., 2026). Third, user capability and training affect adoption (Dandan et al., 2026). The gap is that existing local work either retrieves from a national code without a deployed user system (Roque et al., 2024) or manages local records using keyword search and workflow tools (Samuel Reign & Centeno, 2024; Wong, 2025). No reviewed study applies vector-based semantic retrieval to municipal ordinances and reports both ranking-based retrieval metrics and ISO/IEC 25010 results, which the proposed system will do for the Office of the Secretary to the Sangguniang Bayan of Polangui.
+Conceptual Framework
+The conceptual framework of the study illustrates the overall structure and operational flow of the development and evaluation of the Vector Search-Based Local Ordinance and Policy Retrieval System for the Office of the Secretary to the Sangguniang Bayan of Polangui. As shown in Figure 1, the framework follows the Input–Process–Output (IPO) model integrated with a continuous feedback loop, guiding the systematic design, technical execution, performance testing, and user evaluation of the system.
+
+The Input phase encompasses the primary data, technical specifications, document metadata, and evaluation criteria required to initiate system development. This includes digitized official local ordinances and policy documents gathered from the Office of the Secretary to the Sangguniang Bayan of Polangui, along with associated document metadata such as ordinance titles, section numbers, and source information necessary for verification. It also incorporates natural-language user query requirements from authorized LGU personnel, as well as the underlying system architecture components—specifically natural language processing models, document chunking strategies, text embedding generation, vector database similarity search infrastructure, and web application framework specifications. Furthermore, system evaluation standards based on ISO/IEC 25010 software quality characteristics and retrieval metrics (Precision@K, Recall@K, MRR, and nDCG) serve as foundational inputs for benchmarking performance and quality assurance.
+
+The Process phase adheres to the Rapid Application Development (RAD) methodology, emphasizing iterative design, rapid prototyping, and active user feedback to ensure effective system implementation. This phase begins with Requirements Planning, where document management, query handling, and user interaction needs are formally gathered and defined. It proceeds through User Design and Prototyping, involving the architectural design of document chunking pipelines, text vectorization, embedding generation, vector database indexing, and user interface mockups. Under Construction and Development, the functional backend services and frontend interfaces are built, integrating vector similarity search mechanisms to enable semantic retrieval against everyday-language queries. The process continues through Testing and Evaluation, where controlled retrieval experiments are conducted to evaluate semantic relevance, indexing and response times, paraphrasing resilience, and ISO/IEC 25010 software quality attributes. Finally, Deployment and Cutover delivers the operational software tool to the intended office and provides system orientation for personnel.
+
+The Output phase represents the tangible deliverables, evaluated outcomes, and practical impacts of the research study. The technical output is a functional web-based vector search retrieval system tailored for the Office of the Secretary to the Sangguniang Bayan of Polangui, enabling users to submit natural-language queries and instantly retrieve semantically relevant ordinance provisions alongside official metadata for verification. The evaluation output comprises a comprehensive empirical report documenting retrieval precision, recall, ranking performance (MRR, nDCG), response speeds, and user acceptance testing results. Ultimately, the beneficiary output leads to enhanced legislative records management, reduced manual document search effort, and traceable verification of municipal policies without overriding official legal interpretation.
+
+Finally, the Feedback mechanism creates an iterative refinement loop connecting the output to the input and process phases. Insights gathered from user acceptance testing, software quality evaluations, and performance benchmarking are fed back into the system to fine-tune document chunking parameters, optimize embedding generation, refine vector database indexing strategies, and update system UI components. This ensures that the retrieval system remains accurate, user-centered, and responsive to the evolving record-retrieval needs of the Sangguniang Bayan.
+
+Overall, this conceptual framework provides a structured, data-driven foundation for developing a vector search-based legislative retrieval system, ensuring that system execution is technically rigorous and directly aligned with established software engineering and research methodologies.
+
+
+Figure 1. Conceptual Paradigm of the Study
+Figure 1 presents the conceptual framework of the proposed system as illustrated in the diagram above. The framework follows the Input–Process–Output (IPO) model with an integrated feedback mechanism, where the input serves as the foundation of the study before proceeding to the process phase. The input includes data and metadata requirements consisting of digitized local ordinances and policies from the Office of the Secretary to the Sangguniang Bayan of Polangui, document metadata such as ordinance titles, sections, and source information for traceable verification, and everyday-language user queries. It also incorporates system architecture and design components including natural language processing models, text embeddings, vector database similarity search infrastructure, and backend services, alongside evaluation frameworks utilizing retrieval metrics (Precision@K, Recall@K, MRR, nDCG) and ISO/IEC 25010 software quality characteristics.
+
+The process phase, which follows the Rapid Application Development (RAD) methodology, guides the systematic development of the OrdiSearch vector search-based system. This phase involves Requirements Planning to gather user, document, metadata, and retrieval needs; User Design & Prototyping to design core architecture, UI, document chunking strategies, embedding generation, vector indexing, and ranking workflows; Construction & Development to build backend services, integrate embedding models, and optimize semantic matching; Testing & Evaluation to conduct controlled retrieval experiments measuring Precision@K, Recall@K, MRR, nDCG, response times, and ISO/IEC 25010 software quality; and Deployment & Cutover to release the functional retrieval system and train authorized personnel for official legislative record lookup. The iterative nature of RAD allows continuous improvement through regular testing and refinement based on user feedback.
+
+Finally, the output represents the expected results of the proposed system entitled "OrdiSearch: Vector Search-Based Local Ordinance and Policy Retrieval System". The technical output provides a functional web-based software application that accepts natural-language questions and retrieves semantically relevant ordinance provisions alongside official metadata for easy verification. The evaluation output delivers a consolidated report documenting retrieval metrics, response times, paraphrasing performance, user acceptance results, and ISO/IEC 25010 software quality findings. The beneficiary impact benefits the Office of the Secretary to the Sangguniang Bayan of Polangui by ensuring faster, structured retrieval of legislative records, reducing manual document location effort, and enabling traceable official document verification without replacing authorized legal interpretation. Feedback from testing and evaluation is fed back into the framework to ensure ongoing system refinement and alignment with user needs.
+
+Through this framework, the study ensures a structured, user-centered, and data-driven approach in developing a reliable and effective municipal ordinance and policy retrieval system.
+
+
+
+
+
+
+
+
+
+References
+Agpaoa, A. A. C., & Palaoag, T. D. (2025). Designing a performance metrics evaluation framework for NLP-driven chatbots in local government unit. Journal of Information Systems Engineering and Management, 10(43s), 1153–1159. https://jisem-journal.com/index.php/journal/article/download/8535/3883/14181
+Dandan, D. G., Cruz, M. M. P., Soriano, A. P., II, & Balogo, K. M. (2026). Evaluating the effectiveness of Barangay Management System for local governance using software quality model of ISO 25010:2011. International Journal of Interdisciplinary Viewpoints, 2(3), 30–35. https://doi.org/10.64612/ijiv.v2i3.72
+Dela Peña, M. A. (2025). E-governance in Paracale: A digital transformation for improved public service delivery and citizen engagement. JPAIR Multidisciplinary Research, 61(1). https://doi.org/10.7719/jpair.v61i1.940
+Department of the Interior and Local Government. (2026, July 23). Memorandum Circular No. 2026-041: e-Legis Reference System. https://batasnatin.com/laws/mc-2026-041
+Libadia, M., Botangen, K. A., Lucero, P. J., & Tecson, J. (2025). Development of a web-based records management system: An ERMS initiative for the Office of Senior Citizen Affairs in the Philippines. Records Management Journal, 35(2), 160–179. https://doi.org/10.1108/RMJ-06-2023-0031
+Lim, N. (2025). A legal framework for the allowance of artificial intelligence systems to practice law in the Philippines [Unpublished manuscript]. HyperModeLex, University of Bologna. https://site.unibo.it/hypermodelex/en/publications/2025-11-lim-ai-systems-philippines/@@download/file/2025-11-LIM-AI-SYSTEMS-PHILIPPINES.pdf
+Roque, M., Abejuela, N., Chu, S., Cabatuan, M., & Sybingco, E. (2024). Legal information retrieval through embedding models and synthetic question generation: Insights from the Philippine Tax Code. In N. Oco, S. N. Dita, A. M. Borlongan, & J.-B. Kim (Eds.), Proceedings of the 38th Pacific Asia Conference on Language, Information and Computation (pp. 354–362). Tokyo University of Foreign Studies. https://aclanthology.org/2024.paclic-1.35/
+Samuel Reign, O., & Centeno, C. J. (2024). Enhancing the Barangay Information System by integrating geolocation technology and Tagalog chatbot using NLP algorithm for efficient community engagement and service. Journal of Electrical Systems, 20(5s), 1136–1149. https://www.researchgate.net/publication/380069999_Enhancing_the_Barangay_Information_System_by_Integrating_Geolocation_Technology_and_Tagalog_Chatbot_using_NLP_Algorithm_for_Efficient_Community_Engagement_and_Service
+Wong, W. J. B. (2025). Development of an integrated system for document routing, Freedom of Information (FOI) system and data security for Philippine Reclamation Authority (PRA). International Journal of Research, 12(4), 55–74. https://doi.org/10.5281/zenodo.15208775
+
+Chapter 3
+RESEARCH DESIGN AND METHODOLOGY
+
+This chapter presented the methods and procedures used in this study. It includes the research method, sources of data, data gathering procedures, software development methodology, system architecture and design, system requirements, the statistical and evaluation tools used in developing and assessing the system, and the ethical considerations observed throughout the research process.
+
+Research Method
+This study employed the developmental and descriptive research method, focusing on designing, developing, and evaluating the VectorSearch-LGU system. The developmental component involved the creation of a vector search-based retrieval system that utilized dense vector embeddings and semantic similarity matching to perform the retrieval of relevant local ordinance provisions from the digitized ordinance corpus of the Local Government Unit (LGU) of Polangui, Albay. Meanwhile, the descriptive aspect involved the collection of user feedback from the administrative personnel of the Office of the Secretary to the Sangguniang Bayan to describe the system's effectiveness and usability in an actual local government setting.
+
+Sources of Data
+The primary sources of data for this study were the administrative personnel employed at    the Office of the Secretary to the Sangguniang Bayan of Polangui, Albay. These staff members provided the essential ground-truth data for the system, including the official digitized local ordinances and policies enacted by the Sangguniang Bayan. These ordinance documents served as the baseline corpus for chunking, embedding, and retrieval. Additionally, the personnel provided feedback through structured evaluation instruments to assess the functional suitability, usability, and overall quality of the developed system.
+ 
+Secondary data sources included the official ordinance files maintained by the Office, encompassing enacted local ordinances, resolutions, and related policy documents of the LGU of Polangui. These documents were collected, digitized (if not already in digital format), and preprocessed for ingestion into the vector search pipeline. The combination of user-provided feedback and official legislative documents ensured that the VectorSearch-LGU system was both practically grounded in real administrative workflows and technically validated against actual municipal records.
+ 
+All data collection and processing procedures strictly adhered to ethical standards, including the Data Privacy Act of 2012 (Republic Act No. 10173), ensuring the protection and confidentiality of all personnel and institutional information throughout the study.
+
+Data Gathering Procedure
+	The data gathering procedure consisted of two phases: retrieval validation and system usability testing. The VectorSearch-LGU prototype served as the primary instrument for data collection during both phases.
+ 
+In the retrieval validation phase, the system's retrieval relevance and accuracy were tested using a curated set of natural-language test queries. These queries were formulated to reflect the types of information requests commonly encountered by the Office of the Secretary to the Sangguniang Bayan, ranging from straightforward keyword-like inquiries to semantically complex questions phrased in everyday language. For each query, the system retrieved the top-ranked ordinance provisions using dense vector similarity matching. The retrieved results were then compared against ground-truth annotations, which identified the correct and relevant ordinance provisions for each query. Based on these comparisons, retrieval performance metrics including Precision@K, Recall@K, Mean Reciprocal Rank (MRR), Normalized Discounted Cumulative Gain (nDCG), query response time, and consistency across paraphrased questions were calculated to determine the reliability and effectiveness of the retrieval pipeline.
+ 
+To evaluate the system's software quality from the user's perspective, the study utilized a structured evaluation questionnaire based on the ISO/IEC 25010:2023 software product quality model. Administrative personnel of the Office rated the system using a five-point Likert scale across quality characteristics including functional suitability, performance efficiency, usability, reliability, and other applicable sub-characteristics. The weighted mean was the statistical method used to analyze this evaluation data. This method assigned different levels of importance to each response. In this approach, each rating provided by the evaluators was multiplied by a weight that reflected its significance. The resulting products were then summed and divided by the total of the weights. By applying this method, the study accounted for the varying influence of each response rather than treating all responses equally. As a result, the weighted mean provided a more comprehensive and meaningful interpretation of the collected data, reflecting the overall perception of the system's quality and performance.
+
+Methodology
+The software development of VectorSearch-LGU adopted the Rapid Application Development (RAD) model, a Software Development Life Cycle (SDLC) approach that emphasizes rapid prototyping, iterative refinement, and close collaboration between developers and end-users. Unlike traditional models such as the Waterfall approach, RAD prioritizes adaptability and user feedback, enabling the system to evolve efficiently through short, repeatable development cycles. This approach ensured that the final product met the functional, technical, and usability requirements of its intended users within a shorter development timeframe.
+The RAD process for VectorSearch-LGU began with the Requirements Planning phase, during which the researchers collaborated with the administrative personnel of the Office of the Secretary to the Sangguniang Bayan of Polangui to identify the system objectives, essential features, and limitations. This phase established a clear understanding of the users' needs regarding document organization, metadata structure, query types, and retrieval expectations that guided the system design. The document, metadata, query, and retrieval requirements identified during this phase directly addressed the first specific objective of the study.
+
+Figure 2. Rapid Application Development (RAD) Diagram
+The User Design phase followed, focusing on the development of interactive prototypes representing the system's core functionalities and interface layout. These prototypes included the conversational query interface, search results display with ordinance title, section, and source document references, and administrative management screens. The prototypes were continuously refined based on feedback from personnel and evaluators to ensure usability, practicality, and alignment with administrative workflows. This phase laid the foundation for continuous improvements prior to full-scale development.
+The Construction phase involved the actual coding and integration of system components. This phase addressed the second specific objective by building the system that divides ordinance documents into searchable sections, creates vector embeddings, accepts natural-language questions, ranks the most relevant sections, and shows the retrieved text together with the ordinance title, section, and source document. The document ingestion pipeline was developed to parse ordinance files, segment them into meaningful chunks (sections, subsections, or provisions), and generate dense vector embeddings using a pre-trained embedding model. The retrieval engine was built to accept natural-language queries, compute semantic similarity against the stored embeddings, rank the most relevant ordinance provisions, and present the results with full traceability to the source document. The frontend interface was developed and integrated with the backend services. Continuous testing and debugging were conducted to ensure retrieval accuracy, interface stability, and overall system efficiency.
+ 
+Finally, the cutover phase marked the deployment and evaluation of the VectorSearch-LGU system. A pilot deployment was conducted at the Office of the Secretary to the Sangguniang Bayan, allowing administrative personnel to use the system for querying local ordinances and policies using natural-language questions. During this phase, both qualitative user feedback and quantitative retrieval performance metrics were collected and analyzed to identify areas for refinement and final system enhancement. This phase directly supported the third specific objective by evaluating the system through controlled retrieval experiments and user feedback.
+
+System Architecture and Design 
+The architecture of the OrdiSearch system followed a Three-Tier Architecture, which divided the system into three independent yet interconnected layers: the Presentation Layer, the Application Layer, and the Data Layer. This design promoted modularity, maintainability, and operational efficiency by allowing each component to function independently while maintaining seamless communication with the others through well-defined interfaces.
+The Presentation Layer served as the primary interface of the system, providing a centralized web-based platform developed using Next.js 15 and React.js. This layer accommodated two distinct user experiences: a public-facing search and chat interface for citizens, and an administrator console for municipal personnel. The public interface allowed users to submit natural-language queries in English or Filipino and receive section-level citations with page references and statutory excerpts. The administrator interface facilitated the upload of ordinance and resolution PDFs, monitoring of processing jobs, review of OCR output, correction of metadata and section boundaries, verification of signatories, and publication of approved documents. The interface was designed to be intuitive and accessible, featuring structured upload sections, document browsers, review panels, and visualization dashboards for evaluation and audit data, accommodating users with varying levels of technical expertise.
+The Application Layer functioned as the central processing unit and was divided into two processing pipelines: the Document Ingestion and Indexing Pipeline, and the Retrieval and Answering Pipeline. The Ingestion Pipeline validated uploaded PDFs, extracted text using PyMuPDF, applied Tesseract optical character recognition to scanned or low-text pages, normalized bilingual text, isolated signature blocks, parsed chapters, articles, sections, and whereas clauses, and generated page-aware chunks with overlapping context. These chunks were then converted into dense vector representations using the FastEmbed model BAAI/bge-small-en-v1.5 and stored alongside keyword-searchable text. The Retrieval Pipeline processed user queries through bilingual synonym expansion and legal stem normalization, retrieved candidates using SQLite FTS5 BM25 ranking and cosine similarity over dense embeddings, fused the scores using configurable weights, applied lexical reranking and relevance thresholds, deduplicated results by section, and assembled citations and excerpts. The resulting answer was strictly extractive, composed only of retrieved statutory passages with source citations rather than generated free text. The backend was developed using Python with the FastAPI framework, which ensured efficient request handling, role-based access control, and coordinated execution of ingestion, retrieval, evaluation, and audit operations.
+The Data Layer was responsible for data management and storage. A SQLite database with FTS5 virtual tables served as the primary store for user accounts, document metadata, document versions, page text, legal sections, semantic chunks, embeddings, signatories, processing jobs, text revisions, benchmark queries, relevance judgments, retrieval experiments, quality evaluations, and audit logs. Original PDFs, rendered page images, normalized text, and the persistent vector index cache were managed through a controlled local storage directory, while database rows referenced files by relative path. An optional Convex integration provided reactive storage for frontend document views, chat history, and analytics, although the SQLite store remained the canonical source for ingestion and retrieval. The data flow began when an administrator uploaded a document through the frontend; the file was validated and processed by the Application Layer, its sections and embeddings were persisted as a new document version, and the document was either activated for public search or flagged for human review. Public queries then traversed the retrieval pipeline, and the resulting citations, scores, and excerpts were returned to the Presentation Layer while search events and administrative actions were recorded for audit purposes. This architecture ensured data consistency, traceability, privacy protection, and accessibility throughout the system.
+As illustrated in the system architecture diagram, the three-tier architecture enabled a clear separation of concerns, allowing OrdiSearch to process legal documents and respond to citizen queries while maintaining reliability, auditability, and source accuracy. The modular structure also facilitated future enhancements, such as integrating alternative embedding models, expanding the corpus to neighboring local government units, or introducing additional evaluation and analytics modules without altering the fundamental organization of the system.
+
+
+
+Figure 3. System Architecture
+System Requirements
+The implementation of the VectorSearch-LGU system required a suitable combination of software and hardware components that supported the system’s development, deployment, and operation. Since the system was designed to perform legal document ingestion, bilingual optical character recognition, semantic retrieval, and source-grounded citation generation, it must operate efficiently on standard government office or academic computer setups while maintaining accessibility, reliability, and data privacy. The following sections present the minimum software and hardware requirements necessary for the system to function properly.
+Table 2. Software Requirements for Development
+
+
+Software Component
+Minimum Requirement
+Operating System
+Windows 11 for development; Linux container for deployment
+Development Tools
+Visual Studio Code, Git, PowerShell
+Runtime Environment
+Python 3.12, Node.js 20 or newer
+Frontend Framework
+Next.js 15 with React 19, TypeScript, and Tailwind CSS
+Backend Framework
+Python with FastAPI, SQLAlchemy, and Uvicorn
+Document Processing
+PyMuPDF 2.0 and Pillow
+OCR Engine
+Tesseract OCR 5.x
+Embedding Engine
+FastEmbed 0.9.1 with BAAI/bge-small-en-v1.5 (384-dimensional vectors)
+Database
+Convex
+Web Browser
+Google Chrome 
+Deployment Tool
+Docker with a Linux container image (optional)
+
+
+The software requirements presented in Table 2 represented the minimum set of tools and technologies required to develop, deploy, and operate the VectorSearch-LGU system. Windows 11 provided a stable environment for development and testing, while Linux through Docker offered a reproducible deployment target for production use. Visual Studio Code served as the main integrated development environment, enabling efficient source code editing, debugging, and project management for both the frontend and backend components. Git and PowerShell supported version control and local automation, while Python 3.12 and Node.js 20 provided the runtime environments required by the backend and frontend respectively.
+For frontend development, Next.js 15 with React 19, TypeScript, and Tailwind CSS was used to build the public search portal and the administrator review console. The framework supported server-side rendering, static export, responsive layouts, and type-safe interaction with the backend API. For backend development, Python with FastAPI was employed to handle authentication, document upload, ingestion jobs, retrieval requests, evaluation workflows, and audit logging. FastAPI was selected for its asynchronous request handling, automatic OpenAPI documentation, and compatibility with Python’s document processing and machine learning libraries. PyMuPDF and Pillow were used for PDF text extraction and page rendering, while Tesseract OCR 5.x handled scanned and low-text pages. FastEmbed with the BAAI/bge-small-en-v1.5 model generated dense semantic embeddings for section-level retrieval. SQLite with FTS5 served as the primary database because it provided reliable relational storage, full-text keyword search, and zero-configuration deployment suitable for a municipal corpus; Convex was retained as an optional cloud layer for reactive frontend features. Finally, Google Chrome or Microsoft Edge was recommended for accessing the system because both browsers offered strong compatibility with modern web applications and reliable developer tools for testing and performance evaluation.
+
+
+Table 3. Hardware Requirements for Implementation
+
+Hardware Component
+Minimum Specification
+Processor
+Intel Core i5 (8th Generation or newer) or AMD equivalent
+Memory (RAM)
+8 GB
+Storage
+128 GB SSD or higher; 256 GB recommended
+Display
+1366 × 768 (720p) resolution
+Internet Connection
+Stable broadband connection for setup, updates, and optional cloud synchronization
+Graphics Processing Unit
+Not required; CPU-based inference is supported
+
+
+Table 3 above showed the required specifications that were used for the development and implementation of the system to ensure smooth operation in a typical government office or academic laboratory setup. An Intel Core i5 processor with at least 8 GB of RAM was sufficient for the system’s processing tasks, including PDF text extraction, Tesseract OCR, legal section parsing, and CPU-based embedding generation through FastEmbed. Unlike deep learning systems that require dedicated graphics hardware, VectorSearch-LGU was designed to operate using standard processors, making it more accessible to local government units with limited technical resources.
+The 128 GB storage capacity provided adequate space for the application files, Python and Node.js dependencies, the embedding model cache, the SQLite database, and the vector index. A larger 256 GB SSD was recommended when original PDFs and rendered page images were retained for archival or backup purposes, since the system can otherwise dispose of these files after indexing to conserve disk space. A 720p display resolution allowed administrators to comfortably review OCR output, correct section boundaries, verify signatories, and inspect evaluation dashboards. A stable internet connection was necessary during initial installation, model download, dependency updates, and optional Convex synchronization, although the core ingestion and retrieval functions can operate locally once the system has been configured. Overall, these minimum specifications allowed the system to remain efficient, affordable, and accessible, especially for municipal offices and educational institutions with modest computing resources.
+
+Evaluation Tool
+The study utilized two distinct evaluation tools to assess both the technical accuracy of the retrieval and ranking components and the functional acceptability of the system. To evaluate the accuracy of OrdiSearch’s legal document retrieval, the researchers employed a Relevance Judgment Matrix, a retrieval-oriented adaptation of the confusion matrix. This tool compared the sections retrieved by the system against the relevance judgments assigned by human evaluators, who graded each retrieved provision using a four-point relevance scale: 3 for directly and completely relevant, 2 for substantially relevant, 1 for partially relevant, and 0 for not relevant. For the confusion matrix, sections with a grade greater than zero were treated as relevant, while sections with a grade of zero were treated as non-relevant. Based on this matrix, critical performance metrics such as Accuracy, Precision, Recall, and F1-Score were calculated. These metrics determined the reliability of the keyword, vector, and hybrid retrieval configurations in returning the correct ordinance sections, ensuring that the system met the technical standards required for a source-grounded legal retrieval tool.
+To assess the software’s quality from the user’s perspective, the study utilized a structured evaluation questionnaire based on the ISO/IEC 25010:2023 software quality standards. Municipal administrators, records officers, legal reviewers, and selected ordinance users rated the system using a five-point Likert scale. The weighted mean was the statistical method used to analyze this evaluation data. This method assigned different levels of importance to each response. In this approach, each rating provided by the evaluators was multiplied by a weight that reflected its significance. The resulting products were then summed and divided by the total of the weights. By applying this method, the study accounted for the varying influence of each response rather than treating all responses equally. As a result, the weighted mean provided a more comprehensive and meaningful interpretation of the collected data, reflecting the overall perception of the system’s quality and performance.
+Formula:
+M = Σ(w · x) / Σw
+Where:
+- x = numerical ratings provided by the evaluator,
+- w = assigned weights for each rating, and
+- M = computed weighted mean.
+F1 Score
+Along with the ISO/IEC 25010 software quality model, the system was also evaluated using the F1-Score. The F1-Score was a standard metric in information retrieval and machine learning used to measure the effectiveness of retrieval and classification systems. It provided a balanced evaluation of system performance by combining precision and recall, making it suitable for assessing collections with an uneven number of relevant and non-relevant provisions. In this study, the weighted average F1-score was utilized to reflect the performance of each query category based on its support, ensuring a more reliable measurement of the system’s retrieval capability. The formula used to calculate the F1-Score was:
+F1 = 2 × (Precision × Recall) / (Precision + Recall)
+Where:
+Precision = True Positives / (True Positives + False Positives)
+Recall = True Positives / (True Positives + False Negatives)
+- True Positives (TP) refer to retrieved ordinance sections that were judged relevant by the evaluators.
+- False Positives (FP) refer to retrieved sections that were judged non-relevant.
+- False Negatives (FN) refer to relevant sections that existed in the corpus but were not retrieved by the system.
+In addition to the F1-Score, the study measured Mean Reciprocal Rank (MRR) and Normalized Discounted Cumulative Gain at k (nDCG@k) to evaluate ranking quality. MRR measured how quickly the first relevant section appeared in the result list, while nDCG@k accounted for the graded relevance of each result using the formula:
+DCG@k = Σ (2^(rel_i) - 1) / log2(i + 1)
+nDCG@k = DCG@k / IDCG@k
+where rel_i is the relevance grade of the section at rank i, and IDCG@k is the ideal discounted cumulative gain obtained by sorting all judged sections by descending relevance. The evaluation also measured retrieval latency, empty-retrieval behavior, and citation correctness. Citation correctness verified that each returned citation pointed to an existing chunk, the same document and section, and a valid page range.
+Furthermore, the retrieval pipeline constructs a feature set from lexical BM25 scores, dense vector cosine similarity, bilingual English–Filipino synonym expansion, legal stem normalization, topic coverage, section-heading alignment, exact phrase matching, and penalty or exemption intent cues. These features serve as inputs to the hybrid ranking process, enabling the system to distinguish between provisions that merely share generic legal wording and provisions that directly address the user’s query. This technical framework was implemented using standardized retrieval and machine learning libraries, including SQLite FTS5 for keyword ranking and FastEmbed with the BAAI/bge-small-en-v1.5 model for semantic similarity, to ensure the reliability and consistency of the system’s retrieval evaluation.
+
+Table 4. Likert Scale
+Scale
+Range
+Interpretation
+5
+4.21 – 5.00
+Excellent
+4
+3.41 – 4.20
+Very Good
+3
+2.61 – 3.40
+Good
+2
+1.81 – 2.60
+Fair
+1
+1.00 – 1.80
+Poor
+
+
+Table 4 presented the evaluation scale, corresponding numerical ranges, and descriptive ratings used to interpret the weighted mean scores. A rating of Poor (1.00–1.80) indicated significant shortcomings in system functionality or usability. Fair (1.81–2.60) reflected partial functionality that did not fully meet user expectations. Good (2.61–3.40) showed modest functionality and adequate performance. Very Good (3.41–4.20) signified that the system met expectations and operated appropriately. Finally, Excellent (4.21–5.00) demonstrated exceptional performance, high user satisfaction, and effective achievement of the system’s objectives. This scale provided a clear and structured framework for evaluating the overall performance and user perception of the system.
+Table 5. Software Product Quality of the Proposed System
+
+Indicators
+5
+4
+3
+2
+1
+A. Functional Suitability
+
+Functional completeness
+Functional correctness
+Functional appropriateness
+
+
+
+
+
+
+
+
+
+
+
+
+B. Interaction Capability
+
+Appropriateness recognizability
+Learnability
+Operability
+Self-descriptiveness
+
+
+
+
+
+
+
+
+
+
+
+Table 5 presented the ISO/IEC 25010 Evaluation Tool for OrdiSearch, which assessed system quality across eight software product characteristics: Functional Suitability, Performance Efficiency, Compatibility, Interaction Capability, Reliability, Security, Maintainability, and Portability. Functional Suitability evaluated whether the system performed its intended tasks accurately and appropriately, specifically the ingestion of ordinance documents, retrieval of legal sections, and generation of source-grounded citations. Performance Efficiency measured response time and resource utilization during search and document processing. Compatibility assessed the system’s ability to operate within existing government office environments and browsers. Interaction Capability measured usability, focusing on ease of use, learnability, operability, and the clarity of system guidance. Reliability examined the system’s availability, fault tolerance, and recovery from failed ingestion jobs. Security evaluated confidentiality, integrity, accountability, and protection of signature-bearing documents. Maintainability and Portability assessed the system’s modularity, testability, adaptability, and ease of deployment. Each indicator was rated on a five-point Likert scale, where 5 indicated excellent performance and 1 indicated poor performance. This evaluation provided a clear overview of OrdiSearch’s strengths and areas for improvement, ensuring that the system was both functionally reliable and user-friendly.
+
+
+
+
+Table 6. Evaluation Expected Results
+
+System Scenario
+System Feature / Module
+Expected Result
+Administrator uploads scanned municipal ordinance PDF
+Document Ingestion & OCR Pipeline
+The system extracts bilingual text using PyMuPDF and Tesseract OCR, parses section boundaries, isolates signature blocks, generates dense embeddings via FastEmbed, and indexes the document into SQLite FTS5 for search.
+User submits natural-language query regarding local policy
+Hybrid Retrieval & Ranking Engine
+The system applies synonym expansion and legal stem normalization, performs BM25 and dense vector similarity scoring, fuses ranks, and returns relevant ordinance provisions with exact page and section citations within seconds.
+Evaluator assesses system output using test query benchmark
+Retrieval Validation Module
+The system computes precision, recall, F1-Score, MRR, and nDCG metrics against ground-truth annotations to verify retrieval relevance and source accuracy.
+Administrative staff evaluates system quality via survey
+Software Quality Evaluation Framework (ISO/IEC 25010)
+User ratings across eight quality characteristics are aggregated using the weighted mean, providing descriptive ratings to evaluate functional suitability and usability.
+System executes query logging and document metadata storage
+Database & Audit Logging Unit
+All search transactions, metadata updates, and processing logs are securely persisted in SQLite without data corruption or loss.
+
+Table 6 outlines the expected results across key operational scenarios for the VectorSearch-LGU system. When an administrator uploads a municipal ordinance PDF, the Document Ingestion Pipeline processes the file through bilingual OCR, parses section boundaries, and generates vector embeddings. When a user submits a natural-language inquiry, the Hybrid Retrieval and Ranking Engine evaluates semantic similarity and BM25 scores to return accurate section-level citations with source excerpts. Furthermore, the Retrieval Validation Module and Software Quality Evaluation Framework provide quantitative performance metrics and ISO/IEC 25010 quality assessments, while the SQLite database securely maintains session records and audit logs to ensure overall system reliability and traceability.
+Ethical Considerations
+The researchers obtained formal approval to conduct the study at the Office of the Secretary to the Sangguniang Bayan of the Local Government Unit of Polangui, Albay, through appropriate institutional channels. Informed consent was secured from all participating administrative personnel, who were briefed on the study's objectives, scope, and procedures. Participation was voluntary, and participants could withdraw at any time without consequence.
+ 
+All data were treated with strict confidentiality, and participants' identities remained anonymous. The ordinance documents used in the study were official public records enacted by the Sangguniang Bayan; however, any personal information contained within or associated with these documents was handled in accordance with applicable privacy standards. Responses from evaluation instruments were used solely for research purposes, and in compliance with the Data Privacy Act of 2012 (Republic Act No. 10173), measures were implemented to secure, store, and properly dispose of all personal information. By following institutional and legal ethical standards, the study safeguarded the rights, privacy, and dignity of all participants involved in the development and evaluation of the VectorSearch-LGU system.
+ 
+This study developed and evaluated VectorSearch-LGU as a supplemental retrieval resource for municipal personnel, without claiming or measuring any resulting change in formal legal interpretation or legislative productivity. The system is intended to support administrative decisions by facilitating.
+References
+	Afrianto, I., Heryanto, A., & Atin, S. (2024). Analysis impact of Rapid Application Development method on development cycle and user satisfaction: A case study on web-based registration service. Scientific Journal of Informatics, 11(1), 84-95. https://doi.org/10.15294/sji.v11i1.1868
+ 
+Agpaoa, A. A. C., & Palaoag, T. D. (2025). Designing a performance metrics evaluation framework for NLP-driven chatbots in local government unit. Journal of Information Systems Engineering and Management, 10(43s), 1153-1159. https://jisem-journal.com/index.php/journal/article/download/8535/3883/14181
+ 
+ISO/IEC 25010. (2023). Systems and software engineering - Systems and software Quality Requirements and Evaluation (SQuaRE) - Product quality model. International Organization for Standardization.
+ 
+Nie, Z., Feng, Z., Li, M., Zhang, C., Zhang, Y., Long, D., & Zhang, R. (2024). When text embedding meets large language model: A comprehensive survey. arXiv preprint arXiv:2412.09165. https://doi.org/10.48550/arXiv.2412.09165
+ 
+Roque, M., Abejuela, N., Chu, S., Cabatuan, M., & Sybingco, E. (2024). Legal information retrieval through embedding models and synthetic question generation: Insights from the Philippine Tax Code. In N. Oco, S. N. Dita, A. M. Borlongan, & J.-B. Kim (Eds.), Proceedings of the 38th Pacific Asia Conference on Language, Information and Computation (pp. 354-362). Tokyo University of Foreign Studies. https://aclanthology.org/2024.paclic-1.35/
+ 
+Singgalen, Y. A., Montolalu, C. E., & Batmetan, J. R. (2024). Implementation of Rapid Application Development (RAD) for community-based ecotourism monitoring system. IJISTECH: International Journal of Information System and Technology, 8(2), 267-278. https://doi.org/10.30645/ijistech.v8i2.399
+
+
+
+
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-11-02T12:30:25+08:00.
+
+The user has uploaded 2 image(s):
+- C:/Users/coped/.gemini/antigravity/brain/1c7124d5-9459-485b-a39c-70c160710364/.user_uploaded/media_1793592543935.jpg
+- C:/Users/coped/.gemini/antigravity/brain/1c7124d5-9459-485b-a39c-70c160710364/.user_uploaded/media_1793592550444.jpg
+You can embed these images in an artifact if you need the USER to review them.
+</ADDITIONAL_METADATA>
+<USER_SETTINGS_CHANGE>
+The user changed setting `Model Selection` from None to Gemini 3.8 Flash (Low). No need to comment on this change if the user doesn't ask about it. If reporting what model you are, please use a human readable name instead of the exact string.
+</USER_SETTINGS_CHANGE>

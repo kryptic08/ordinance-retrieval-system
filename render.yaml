@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: ordisearch-api
+    runtime: docker
+    plan: starter
+    region: oregon
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: ENVIRONMENT
+        value: production
+      - key: ALLOWED_ORIGINS
+        value: "*"
+      - key: SECRET_KEY
+        generateValue: true
+      - key: PORT
+        value: "8000"
+    disk:
+      name: ordisearch-data
+      mountPath: /app/data
+      sizeGB: 5
+    healthCheckPath: /health

@@ -1,0 +1,176 @@
+{
+  "INTRO": [
+    {
+      "file": "intro-1.wav",
+      "offsetSec": 0.0,
+      "text": "Every year, the Local Government Unit of Polangui and the Sangguniang Bayan pass ordinances that shape daily life for citizens and local businesses."
+    },
+    {
+      "file": "intro-2.wav",
+      "offsetSec": 9.0,
+      "text": "To make those laws instantly searchable in plain language, we built OrdiSearch\u2014a vector search-based ordinance and policy retrieval system for Polangui."
+    },
+    {
+      "file": "intro-3.wav",
+      "offsetSec": 18.0,
+      "text": "Let us introduce our team from Bicol University Polangui. I am Kirby Cope, Researcher."
+    },
+    {
+      "file": "intro-4.wav",
+      "offsetSec": 28.0,
+      "text": "Joining me is Arnel Hapin, Researcher from Bicol University Polangui."
+    },
+    {
+      "file": "intro-5.wav",
+      "offsetSec": 38.0,
+      "text": "And James Nebria, Researcher from Bicol University Polangui\u2014working with the LGU of Polangui to modernize access to local legislation."
+    }
+  ],
+  "PROBLEM": [
+    {
+      "file": "problem-1.wav",
+      "offsetSec": 0.0,
+      "text": "Right now, finding a specific rule in Polangui means opening and scrolling through dozens of long, scanned PDF ordinances by hand."
+    },
+    {
+      "file": "problem-2.wav",
+      "offsetSec": 11.0,
+      "text": "People know what they want to ask\u2014like 'Are businesses allowed to operate after midnight?' or 'What is the fine for littering?'\u2014but they do not know the exact legal title."
+    },
+    {
+      "file": "problem-3.wav",
+      "offsetSec": 23.0,
+      "text": "Because ordinances use formal terms like 'permitted commercial operating hours and nighttime trade restrictions,' basic keyword search returns zero matches."
+    },
+    {
+      "file": "problem-4.wav",
+      "offsetSec": 35.0,
+      "text": "OrdiSearch bridges that gap using dense vector embeddings and hybrid BM25 search\u2014matching the meaning of a question directly to the enacted section."
+    }
+  ],
+  "SIGNIFICANCE_OBJECTIVES": [
+    {
+      "file": "sig-1.wav",
+      "offsetSec": 0.0,
+      "text": "We are building this with the Office of the Secretary to the Sangguniang Bayan of Polangui\u2014cutting hours of manual PDF searching down to seconds."
+    },
+    {
+      "file": "sig-2.wav",
+      "offsetSec": 10.0,
+      "text": "For LGU officials and municipal lawmakers, OrdiSearch provides a fast reference tool to check existing policies and spot overlapping ordinances before drafting new laws."
+    },
+    {
+      "file": "sig-3.wav",
+      "offsetSec": 20.0,
+      "text": "And for Polangui's citizens, business owners, and policy researchers, it makes local rules on permits, sanitation, and public order clear and accessible."
+    },
+    {
+      "file": "sig-4.wav",
+      "offsetSec": 30.0,
+      "text": "To achieve this, Objective One identifies the document, metadata, and query requirements of the Sangguniang Bayan of Polangui."
+    },
+    {
+      "file": "sig-5.wav",
+      "offsetSec": 40.0,
+      "text": "Objective Two designs and builds the system\u2014splitting ordinances into sections, generating vector embeddings, and linking every answer to the source PDF."
+    },
+    {
+      "file": "sig-6.wav",
+      "offsetSec": 50.0,
+      "text": "And Objective Three evaluates retrieval accuracy, speed, and software quality through controlled retrieval benchmarks and the ISO/IEC 25010 standard."
+    }
+  ],
+  "METHODOLOGY": [
+    {
+      "file": "meth-1.wav",
+      "offsetSec": 0.0,
+      "text": "We used Rapid Application Development\u2014moving fast from Requirements Planning with SB Polangui into iterative User Design, Rapid Construction, and Cutover."
+    },
+    {
+      "file": "meth-2.wav",
+      "offsetSec": 12.0,
+      "text": "When an ordinance PDF is uploaded, PyMuPDF extracts digital text while Tesseract OCR handles scanned pages. A rule-based parser then splits titles, articles, and sections."
+    },
+    {
+      "file": "meth-3.wav",
+      "offsetSec": 22.0,
+      "text": "Each section chunk is embedded into 384-dimensional vectors using FastEmbed BAAI/bge-small-en-v1.5 and stored in our Convex database with vector and full-text search indexes."
+    },
+    {
+      "file": "meth-4.wav",
+      "offsetSec": 35.0,
+      "text": "Users and evaluators can compare four retrieval modes side by side: Keyword BM25, Semantic Vector, Hybrid, and Hybrid + Rerank."
+    },
+    {
+      "file": "meth-5.wav",
+      "offsetSec": 50.0,
+      "text": "Under the hood, our Three-Tier Architecture connects Next.js 15 and Python FastAPI to our Convex database\u2014storing documents, sections, 384-d vector chunks, and audit logs while preserving official PDFs."
+    }
+  ],
+  "WALKTHROUGH": [
+    {
+      "file": "walk-1.wav",
+      "offsetSec": 0.0,
+      "text": "Let us look at the actual OrdiSearch interface. On the landing page, users see the Polangui seal, live corpus counters, and common citizen inquiry cards."
+    },
+    {
+      "file": "walk-2.wav",
+      "offsetSec": 10.0,
+      "text": "Let us select a real citizen question: 'What are the penalties for illegal waste dumping and littering?' using Hybrid + Rerank mode and click Search Ordinances."
+    },
+    {
+      "file": "walk-3.wav",
+      "offsetSec": 18.0,
+      "text": "In milliseconds, OrdiSearch returns a Source-Grounded Synthesis with clickable citation badges [1] and [2], plus the ranked ordinance provisions below."
+    },
+    {
+      "file": "walk-4.wav",
+      "offsetSec": 30.0,
+      "text": "Clicking Citation [1] opens the Parsed Section Inspector sheet on the right\u2014showing the exact extracted claim, retrieval scores, and the highlighted section text."
+    },
+    {
+      "file": "walk-5.wav",
+      "offsetSec": 42.0,
+      "text": "In the Document Repository tab, staff and citizens can also filter approved Polangui ordinances by title, year, type, or jurisdiction."
+    },
+    {
+      "file": "walk-6.wav",
+      "offsetSec": 54.0,
+      "text": "Switching to the Admin Portal, the Sangguniang Bayan custodian manages active ordinances, OCR review queues, indexed sections, and background processing jobs."
+    },
+    {
+      "file": "walk-7.wav",
+      "offsetSec": 72.0,
+      "text": "And in the Admin Evaluation tab, custodians run controlled benchmark experiments across Keyword, Vector, Hybrid, and Hybrid + Rerank directly inside the app."
+    }
+  ],
+  "EVALUATION": [
+    {
+      "file": "eval-1.wav",
+      "offsetSec": 0.0,
+      "text": "For our Chapter 3 evaluation methodology, administrators test the system using a human-judged benchmark query set graded against official Polangui ordinance sections."
+    },
+    {
+      "file": "eval-2.wav",
+      "offsetSec": 15.0,
+      "text": "The built-in Experiment Runner automatically computes Precision@K, Recall@K, MRR, nDCG@K, citation correctness, and median and P95 response latency."
+    },
+    {
+      "file": "eval-3.wav",
+      "offsetSec": 30.0,
+      "text": "Alongside retrieval metrics, our Admin Quality Survey module collects 5-point Likert ratings across all eight ISO/IEC 25010 software quality characteristics."
+    }
+  ],
+  "CONCLUSION": [
+    {
+      "file": "conc-1.wav",
+      "offsetSec": 0.0,
+      "text": "OrdiSearch turns static PDF archives into an instant, source-traceable legal assistant for the Sangguniang Bayan, LGU officials, and citizens of Polangui."
+    },
+    {
+      "file": "conc-2.wav",
+      "offsetSec": 15.0,
+      "text": "From Kirby Cope, Arnel Hapin, and James Nebria of Bicol University Polangui\u2014thank you for watching our pitch for OrdiSearch!"
+    }
+  ]
+}
