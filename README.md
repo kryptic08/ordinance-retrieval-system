@@ -230,4 +230,4 @@ scripts/              Local setup and backup helpers
 
 ## License
 
-No license has been declared. Add one before distributing the project.
+This project is licensed under the [MIT License](LICENSE).
